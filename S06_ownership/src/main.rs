@@ -59,6 +59,53 @@ fn main() {
     let amount = 955.50f32;
     send_money(amount);
     println!("{} coin sent", amount);
+
+    /*
+       Aşağıdaki kod örneğinde String veri türünün referans yolu ile bir metoda parametre olarak
+       geçilmesi söz konusudur. & ile level_name referansı taşındığından bir sonraki satırda
+       move ihlali söz konusu olmayacaktır.
+    */
+    let level_name = String::from("Casino Royal");
+    load_level(&level_name);
+    println!("Now game at level {}", level_name);
+
+    /*
+       Aşağıdaki kullanım da mümkündür.
+       some_words değişkeninin sahipliği mutable referans olarak trim_last metoduna taşınır.
+    */
+    let mut some_words = String::from("Some words !.");
+    trim_last(&mut some_words);
+    println!("{}", some_words);
+    trim_last(&mut some_words);
+    println!("{}", some_words);
+
+    /*
+       Ownership kurallarına göre bir veri aynı anda yalnızca bir mutable referansa sahip olabilir
+       ya da aynı anda birden fazla shared referansa mümkündür.
+    */
+    let mut motto = String::from("It's a Beautiful Day !.");
+    let upper_counts = get_upper_counts(&motto);
+    load_level(&motto);
+    trim_last(&mut motto);
+    println!("Upper Letter counts: {}", upper_counts);
+}
+
+fn get_upper_counts(context: &String) -> usize {
+    let mut count = 0;
+    for c in context.chars() {
+        if c.is_ascii_uppercase() {
+            count += 1;
+        }
+    }
+    count
+}
+
+fn load_level(name: &String) {
+    println!("Loading level {}", name);
+}
+
+fn trim_last(context: &mut String) {
+    context.pop();
 }
 
 fn send_money(money: f32) {
