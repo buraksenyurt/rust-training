@@ -18,7 +18,40 @@ fn main() {
     add_someone_by_ref(&mut some_number, 1i8);
     println!("R. And after add the number is {}", some_number);
     // Soru 2
+
+    // Soru 3
+    let mut gold_leader = Vehicle {
+        acceleration: 10,
+        color: String::from("Black"),
+        speed: 120,
+    };
+    println!("{:?}", gold_leader);
+    gold_leader.set_acceleration(20);
+    gold_leader.set_top_speed(130);
+    gold_leader.set_color("RED".to_string());
+    println!("{:?}", gold_leader);
+    // Soru 3
 }
+
+// Soru 3
+#[derive(Debug)]
+struct Vehicle {
+    acceleration: i8,
+    color: String,
+    speed: u8,
+}
+impl Vehicle {
+    fn set_acceleration(&mut self, amount: i8) {
+        self.acceleration = amount;
+    }
+    fn set_color(&mut self, color: String) {
+        self.color = color;
+    }
+    fn set_top_speed(&mut self, speed: u8) {
+        self.speed = speed;
+    }
+}
+// Soru 3
 
 // Soru 2 metodu
 fn add_someone(mut number: i8, acceleration: i8) {
@@ -51,4 +84,10 @@ fn is_exist(numbers: &Vec<i8>, value: i8) -> bool {
    Parametre olarak gelen i8 türünden değerin önce normal taşınarak metod içerisinde artırılması
    sonraki sürümde ise referans olarak gönderilip aynı işlemin yapılması isteniyor. Her iki
    durum arasındaki farkların tartışılması bekleniyor.
+
+   Soru 3:
+   Vehicle isimli bir struct oluştulması isteniyor. İçerisinde color, speed, acceleration gibi
+   alanlar olmalı. Ayrıca bu alanları set edecek metotlar yazılmalı. set_color, set_speed gibi.
+   Bu struct tasarımını yaptıktan sonra ise bir Vehicle oluşturup varsayılan değerler atılmalı,
+   sonrasında da set_ metotları ile değişiklikler yapılıp bilgiler ekrana yazdırılmalı.
 */

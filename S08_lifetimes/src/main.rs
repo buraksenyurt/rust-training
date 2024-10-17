@@ -97,14 +97,14 @@ struct Account<'a> {
 }
 
 /*
-    Aşağıdaki örnekte yer alan ApplicationSettings isimli struct
-    lifetime annotation kullanıyor.
-    Bunu tip bir yapıyı programın çalışma zamanı boyunca tutacağı bazı ayarlar
-    için kullanabiliriz. Sunucu adresi, veritabanı bilgisi gibi.
+   Aşağıdaki örnekte yer alan ApplicationSettings isimli struct
+   lifetime annotation kullanıyor.
+   Bunu tip bir yapıyı programın çalışma zamanı boyunca tutacağı bazı ayarlar
+   için kullanabiliriz. Sunucu adresi, veritabanı bilgisi gibi.
 
-    get_app_settings fonksiyonun ApplicationSettings örneğini dönerken dikkat edileceği üzere
-    <'static> bildirimini ele almıştır.
- */
+   get_app_settings fonksiyonun ApplicationSettings örneğini dönerken dikkat edileceği üzere
+   <'static> bildirimini ele almıştır.
+*/
 struct ApplicationSettings<'a> {
     server_address: &'a str,
     connection_string: &'a str,

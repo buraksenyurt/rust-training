@@ -11,6 +11,11 @@ Rust ile ilgili temelden orta seviyeye eğitim vermek istesem hangi konuları ha
 - [ ] S04 - Functions
 - [ ] S05 - Control flows
 - [ ] S06 - Ownership and Move
+- [ ] S07 - Structs
+- [ ] S08 - Lifetimes
+- [ ] S09 - 
+- [ ] S10 -
+- [ ] S99 - Questions
 
 ## Yardımcılar
 
@@ -41,3 +46,5 @@ Rust dilinde kullanılan i32, f64, bool, gibi basit türler stack alanında depo
 Deep copy dediğimizde ise verinin tamamının yani hem işaretçilerin hem de heap üzerindeki asıl verinin kopyalanmasını söz konusudur. Bu yeni bir bellek alanı tahsis edilmesi ve orijinal verinin açılan yeni alana tamamen kopyalanması demektir. Çok doğal olarak bunun bir maliyeti vardır. İşlem sonrasında orijinal veri ile kopyalanan veri birbirlerinden bağımsız kullanılabilirler.
 
 Bir String nesnesi oluşturulduğunda, içerik bir vektör olarak karakter seti halinde heap bellek bölgesinde tutulur. Sadece shallow copy yapılırsa birbirine atanan iki string de aynı heap alanını işaret ederdi. Rust'ta String Copy trait'ini bilinçli olarak uygulamaz ve bu tip referans eşleşmelerini zaten istemez. Ancak clone() kullanılarak Deep Copy yapılabilir ve heap üzerindeki karakter serisi yeni bir alana kopyalanır.
+
+S07 Struct konusunu işlerken dikkat edilmesi gereken bir kavram karmaşası var. Fonksiyon mu metot mu? Metotlar, fonksiyonlara benzer ancak metotlar esasında Struct context'ine dahildir ve struct ile ilişkilendirilerler.
