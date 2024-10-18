@@ -9,12 +9,13 @@ Rust ile ilgili temelden orta seviyeye eğitim vermek istesem hangi konuları ha
 - [ ] S02 - Vectors and Slices
 - [ ] S03 - String and &str
 - [ ] S04 - Functions
-- [ ] S05 - Control flows
+- [ ] S05 - Control Flows
 - [ ] S06 - Ownership and Move
 - [ ] S07 - Structs
 - [ ] S08 - Lifetimes
 - [ ] S09 - Enums
-- [ ] S10 -
+- [ ] S10 - Pattern Matching
+- [ ] S11 - 
 - [ ] S99 - Questions
 
 ## Yardımcılar
