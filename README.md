@@ -13,7 +13,7 @@ Rust ile ilgili temelden orta seviyeye eğitim vermek istesem hangi konuları ha
 - [ ] S06 - Ownership and Move
 - [ ] S07 - Structs
 - [ ] S08 - Lifetimes
-- [ ] S09 - 
+- [ ] S09 - Enums
 - [ ] S10 -
 - [ ] S99 - Questions
 

@@ -1,0 +1,8 @@
+[package]
+name = "S09_enums"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rand = "0.9.0-alpha.2"
+chrono = "0.4.38"
