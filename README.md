@@ -17,7 +17,8 @@ Rust ile ilgili temelden orta seviyeye eğitim vermek istesem hangi konuları ha
 - [ ] S10 - Pattern Matching
 - [ ] S11 - Generics
 - [ ] S12 - Traits
-- [ ] S13 - 
+- [ ] S13 - Built-In Traits
+- [ ] S14 - 
 - [ ] S99 - Questions
 
 ## Yardımcılar
