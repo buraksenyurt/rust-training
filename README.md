@@ -15,7 +15,9 @@ Rust ile ilgili temelden orta seviyeye eğitim vermek istesem hangi konuları ha
 - [ ] S08 - Lifetimes
 - [ ] S09 - Enums
 - [ ] S10 - Pattern Matching
-- [ ] S11 - 
+- [ ] S11 - Generics
+- [ ] S12 - Traits
+- [ ] S13 - 
 - [ ] S99 - Questions
 
 ## Yardımcılar
