@@ -88,6 +88,8 @@ fn main() {
     load_level(&motto);
     trim_last(&mut motto);
     println!("Upper Letter counts: {}", upper_counts);
+
+    only_one_mutable();
 }
 
 fn get_upper_counts(context: &String) -> usize {
@@ -150,4 +152,33 @@ fn move_rule_with_clone() {
     let names_again = names.clone(); // names vektörünün bir klonu oluşturulur ve bunun sahipliği names_again değişkenine verilir
     println!("{:?}", names); // Bu durumda names halen kullanılabilirdir.
     println!("{:?}", names_again);
+}
+
+fn only_one_mutable(){
+    let mut greetings = String::from("Hello HAL! How are you doing?");
+
+    let ref_1 = &greetings;  // Immutable referans
+    let ref_2 = &greetings;  // Diğer immutable referansımız
+
+    // let mut_ref = &mut greetings;  // Mutable referans oluşturmaya çalışıyoruz
+
+    /*
+        Hem immutable hem de mutable referansı
+        aynı anda kullanmaya çalışmak hataya neden olacaktır.
+
+        error[E0502]: cannot borrow `greetings` as mutable because it is also borrowed as immutable
+       --> S06_ownership\src/main.rs:163:19
+        |
+    160 |     let ref_1 = &greetings;  // Immutable referans
+        |                 ---------- immutable borrow occurs here
+    ...
+    163 |     let mut_ref = &mut greetings;  // Mutable referans oluşturmaya çalışıyoruz
+        |                   ^^^^^^^^^^^^^^ mutable borrow occurs here
+    ...
+    169 |     println!("{}, {}", ref_1, ref_2);
+        |                        ----- immutable borrow later used here
+
+     */
+    println!("{}, {}", ref_1, ref_2);
+    // println!("{}", mut_ref);
 }
