@@ -23,6 +23,27 @@ Rust ile ilgili temelden orta seviyeye eğitim vermek istesem hangi konuları ha
 
 ## Yardımcılar
 
+Rust dilinde isimlendirme standartları da kod okunurluğu ve genel uyumluluk açısından önemlidir. Aşağıdaki isimlendirme önerilerine ait bilgilerin yer aldığı bir tablo bulunmaktadır.
+
+| Kategori               | İsimlendirme Standardı                   |
+|------------------------|------------------------------------------|
+| Constants              | SCREAMING_SNAKE_CASE                     |
+| Conversion constructors| from_some_other_type                     |
+| Crates                 | unclear                                  |
+| Enum variants          | UpperCamelCase                           |
+| Features               | unclear but see C-FEATURE                |
+| Functions              | snake_case                               |
+| General constructors   | new / init                               |
+| Lifetimes              | 'a, 'de, 'src                            |
+| Local variables        | snake_case                               |
+| Macros                 | snake_case!                              |
+| Methods                | snake_case                               |
+| Modules                | snake_case                               |
+| Statics                | SCREAMING_SNAKE_CASE                     |
+| Traits                 | UpperCamelCase                           |
+| Type parameters        | T, K gibi olabilir                       |
+| Types                  | UpperCamelCase                           |
+
 S03 bölümünde string slice (&str) ve string literal karmaşası için ek bilgi.
 
 | Özellik      | String Literal (`&'static str`)                                 | String Slice (`&str`)                                                                              |
