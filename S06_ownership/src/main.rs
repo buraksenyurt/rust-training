@@ -154,11 +154,11 @@ fn move_rule_with_clone() {
     println!("{:?}", names_again);
 }
 
-fn only_one_mutable(){
+fn only_one_mutable() {
     let mut greetings = String::from("Hello HAL! How are you doing?");
 
-    let ref_1 = &greetings;  // Immutable referans
-    let ref_2 = &greetings;  // Diğer immutable referansımız
+    let ref_1 = &greetings; // Immutable referans
+    let ref_2 = &greetings; // Diğer immutable referansımız
 
     // let mut_ref = &mut greetings;  // Mutable referans oluşturmaya çalışıyoruz
 

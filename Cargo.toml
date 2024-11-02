@@ -1,3 +1,3 @@
 [workspace]
 resolver = "2"
-members = ["S00_hello_world", "S01_variables", "S02_vectors", "S03_strings", "S04_functions", "S05_control_flows", "S06_ownership", "S07_structs", "S08_lifetimes", "S09_enums", "S10_pattern_matching", "S11_generics", "S12_traits", "S13_built_in_traits", "S99_questions"]
+members = ["S00_hello_world", "S01_variables", "S02_vectors", "S03_strings", "S04_functions", "S05_control_flows", "S06_ownership", "S07_structs", "S08_lifetimes", "S09_enums", "S10_pattern_matching", "S11_generics", "S12_traits", "S13_built_in_traits", "S14_modules", "S99_questions"]
