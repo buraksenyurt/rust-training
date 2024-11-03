@@ -77,3 +77,19 @@ Deep copy dediğimizde ise verinin tamamının yani hem işaretçilerin hem de h
 Bir String nesnesi oluşturulduğunda, içerik bir vektör olarak karakter seti halinde heap bellek bölgesinde tutulur. Sadece shallow copy yapılırsa birbirine atanan iki string de aynı heap alanını işaret ederdi. Rust'ta String Copy trait'ini bilinçli olarak uygulamaz ve bu tip referans eşleşmelerini zaten istemez. Ancak clone() kullanılarak Deep Copy yapılabilir ve heap üzerindeki karakter serisi yeni bir alana kopyalanır.
 
 S07 Struct konusunu işlerken dikkat edilmesi gereken bir kavram karmaşası var. Fonksiyon mu metot mu? Metotlar, fonksiyonlara benzer ancak metotlar esasında Struct context'ine dahildir ve struct ile ilişkilendirilerler.
+
+S14 isimli bölümde package, crate ve module kavramlarına kısaca değiniyoruz. Her uygulama çözümünde olduğu gibi rust tarafından da projelerin organizasyonu mümkün. Aşağıdaki şema bunu desteklemek amacıyla kullanılabilir.
+
+![image](https://github.com/user-attachments/assets/00f92509-637e-4f4d-b104-cc1f4abf3c7f)
+
+Bir e-commerce sisteminin olduğunu düşünelim. Burada birçok işlevi içeren kütüpahenelerimiz bu kütüphaneleri referans olarak alan ve kullanan başka binary'lerimiz olabilir. Bir backend kütüphaneler topluluğu ve bir web uygulaması ya da api servisi olduğunu düşünelim. Klasik senaryo... En dış bloğu workspace olarak düşünebiliriz. Kendi Cargo.toml dosyasını içeren bir klasördür aslında. Diğer projeler (library ve binary türleri) bu workspace altına açılabilir. C# tarafındakiler için Workspace'in Solution olduğunu söylesem yeterli olacaktır. Workspace aynı zamanda bir Package olarak yorumlanabilir. Paketler birden fazla kütüphane barındıran toplu çözümlerdir. Crates.io' da bu tip birçok yardımcı paket yer alır. Paket içerisinde yer alan library ve binary'ler birer Crate olarak da düşünülebilir. Crate'ler içerisinde module'ler ve hatta alt modüller yer alır. Çalıştığımız projelerin structure iskeletini görebilmek cargo-modules aracı kullanılabilir.
+
+```bash
+cargo install cargo-modules
+
+# ve örneğin
+cargo modules structure --package S14_modules
+```
+Bu kullanım aşağıdakine benzer bir çıktı üretir.
+
+![image](https://github.com/user-attachments/assets/de0db625-0d52-463f-ad82-04b3b70ff999)
