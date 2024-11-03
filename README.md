@@ -20,8 +20,9 @@ Buradaki konular ile ilgili birde Youtube serimiz var. ["Birlikte Rust Öğrenel
 - [ ] S11 - Generics
 - [ ] S12 - Traits
 - [ ] S13 - Built-In Traits
-- [ ] S14 - Modules
-- [ ] S15 - 
+- [ ] S14 - Modules, Crates, Packages
+- [ ] S15 - Error Handling
+- [ ] S16 -
 - [ ] S99 - Questions
 
 ## Yardımcılar
