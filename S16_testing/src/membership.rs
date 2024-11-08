@@ -43,7 +43,7 @@ mod membership_tests {
     }
 
     #[test]
-    fn test_short_username() {
+    fn test_short_nick_name() {
         let membership_manager = MembershipManager;
         let result = membership_manager.validate_nickname("none");
         assert_eq!(
@@ -55,7 +55,7 @@ mod membership_tests {
     }
 
     #[test]
-    fn test_long_username() {
+    fn test_long_nick_name() {
         let membership_manager = MembershipManager;
         let result = membership_manager.validate_nickname("ToooooLonnnnnnnnngggggggggggNickkkk");
         assert_eq!(
@@ -67,7 +67,7 @@ mod membership_tests {
     }
 
     #[test]
-    fn test_username_with_space() {
+    fn test_nick_name_with_space() {
         let membership_manager = MembershipManager;
         let result = membership_manager.validate_nickname("The Red Barron");
         assert_eq!(
@@ -79,7 +79,7 @@ mod membership_tests {
     }
 
     #[test]
-    fn test_username_with_special_chars() {
+    fn test_nick_name_with_special_chars() {
         let membership_manager = MembershipManager;
         let result = membership_manager.validate_nickname("Rust@Nickname!");
         assert_eq!(
