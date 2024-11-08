@@ -6,23 +6,24 @@ Buradaki konular ile ilgili birde Youtube serimiz var. ["Birlikte Rust Öğrenel
 
 ## Konular
 
-- [ ] S00 - Hello World
-- [ ] S01 - Variables, Mut and Scalar Types
-- [ ] S02 - Vectors and Slices
-- [ ] S03 - String and &str
-- [ ] S04 - Functions
-- [ ] S05 - Control Flows
-- [ ] S06 - Ownership and Move
-- [ ] S07 - Structs
-- [ ] S08 - Lifetimes
-- [ ] S09 - Enums
-- [ ] S10 - Pattern Matching
-- [ ] S11 - Generics
-- [ ] S12 - Traits
-- [ ] S13 - Built-In Traits
-- [ ] S14 - Modules, Crates, Packages
-- [ ] S15 - Error Handling
-- [ ] S16 -
+- [x] S00 - Hello World
+- [x] S01 - Variables, Mut and Scalar Types
+- [x] S02 - Vectors and Slices
+- [x] S03 - String and &str
+- [x] S04 - Functions
+- [x] S05 - Control Flows
+- [x] S06 - Ownership and Move
+- [x] S07 - Structs
+- [x] S08 - Lifetimes
+- [x] S09 - Enums
+- [x] S10 - Pattern Matching
+- [x] S11 - Generics
+- [x] S12 - Traits
+- [x] S13 - Built-In Traits
+- [x] S14 - Modules, Crates, Packages
+- [x] S15 - Error Handling
+- [x] S16 - Testing
+- [ ] S17 - 
 - [ ] S99 - Questions
 
 ## Yardımcılar

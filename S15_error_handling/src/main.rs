@@ -1,5 +1,5 @@
 /*
-   Rust dilinde hatalar recovarble ve unrecoverable olmak üzere
+   Rust dilinde hatalar recoverable ve unrecoverable olmak üzere
    iki ana kategoriye ayrılır.
 
    Recoverable Error için Result türü ele alınırken,
@@ -28,7 +28,6 @@ fn main() {
     */
     let numbers = vec![1, 4, 7, 0, 9];
     // let some_number= numbers[99];
-
     /*
        Recoverable Errors,
 
