@@ -35,7 +35,6 @@ enum UserError {
 #[cfg(test)]
 mod membership_tests {
     use super::*;
-    use crate::memership::UserError::InvalidNickname;
 
     #[test]
     fn test_valid_nick_name() {
@@ -85,7 +84,7 @@ mod membership_tests {
         let result = membership_manager.validate_nickname("Rust@Nickname!");
         assert_eq!(
             result,
-            Err(InvalidNickname(
+            Err(UserError::InvalidNickname(
                 "Nickname contains alphanumeric".to_string()
             ))
         );

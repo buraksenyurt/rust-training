@@ -24,7 +24,7 @@
     cargo test --help
 */
 mod accounting;
-mod memership;
+mod membership;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
