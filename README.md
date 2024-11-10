@@ -23,7 +23,9 @@ Buradaki konular ile ilgili birde Youtube serimiz var. ["Birlikte Rust Öğrenel
 - [x] S14 - Modules, Crates, Packages
 - [x] S15 - Error Handling
 - [x] S16 - Testing
-- [ ] S17 - 
+- [ ] S17 - Closures
+- [ ] S18 -
+- [ ] S19 - 
 - [ ] S99 - Questions
 
 ## Yardımcılar
