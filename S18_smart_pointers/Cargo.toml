@@ -1,0 +1,6 @@
+[package]
+name = "S18_smart_pointers"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
