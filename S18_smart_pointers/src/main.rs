@@ -16,23 +16,10 @@
 */
 mod boxing;
 
-use std::fmt::{Display, Formatter};
 use crate::boxing::*;
 
 fn main() {
     simple_boxing();
-}
-
-fn simple_boxing() {
-    // Örnek bir Boxing işlemi
-    let value = 23; // Normalde stack' de saklanır
-    let boxed_value = Box::new(value); // Şimdi heap'e alındı ama boxed_value hala stack'te zira adres göstermekte
-    println!("Boxed value is {}", boxed_value);
-
-    let identity = ("John Smith", 23, true); // tuple veriyi stack'ta saklar
-    let boxed_identity = Box::new(identity); // Şimdi heap' te
-    println!("Boxed identity is {:?}", boxed_identity);
-
     //recursive_data_model_with_error();
     recursive_sample();
 }

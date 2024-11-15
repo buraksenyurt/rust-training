@@ -1,3 +1,13 @@
+pub fn simple_boxing() {
+    // Örnek bir Boxing işlemi
+    let value = 23; // Normalde stack' de saklanır
+    let boxed_value = Box::new(value); // Şimdi heap'e alındı ama boxed_value hala stack'te zira adres göstermekte
+    println!("Boxed value is {}", boxed_value);
+
+    let identity = ("John Smith", 23, true); // tuple veriyi stack'ta saklar
+    let boxed_identity = Box::new(identity); // Şimdi heap' te
+    println!("Boxed identity is {:?}", boxed_identity);
+}
 
 /*
    Aşağıdaki kullanım build aşamasında
