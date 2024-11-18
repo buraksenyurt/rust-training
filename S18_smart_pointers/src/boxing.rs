@@ -17,15 +17,15 @@ pub fn simple_boxing() {
    Bir düğüm kendisine referans verdikçe bu sonsuz bir boyutlamaya gider.
    Bu nedenle ilgili senaryoda Box kullanılarak esasında Heap bazlı bir kullanıma gidilir.
 */
+// enum Tree {
+//     Node(i32, Tree, Tree),
+//     Empty,
+// }
+
 //pub  fn recursive_data_model_with_error() {
 //     let left_child = Tree::Node(1, Tree::Empty, Tree::Empty);
 //     let right_child = Tree::Node(3, Tree::Empty, Tree::Empty);
 //     let root = Tree::Node(2, left_child, right_child);
-// }
-//
-// enum Tree {
-//     Node(i32, Tree, Tree),
-//     Empty,
 // }
 
 use std::fmt::{Display, Formatter};

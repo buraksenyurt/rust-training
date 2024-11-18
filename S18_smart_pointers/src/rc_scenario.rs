@@ -9,7 +9,7 @@ use std::rc::Rc;
 
 pub fn hello_rc() {
     /*
-       p1, p2 ve p2 aynı veriyi işaret eden ve stack' de duran pointer'lardır.
+       p1, p2 ve p3 aynı veriyi işaret eden ve stack' de duran pointer'lardır.
     */
     let p1 = Rc::new(String::from("Some values on the heap"));
     let p2 = p1.clone();
@@ -112,16 +112,16 @@ pub fn hello_rc() {
 // }
 
 /*
-    Yukarıdaki senaryoda bir Player'ın kendisini tutan bir Vector nesnesine ihtiyacı olmuştur.
-    Bunun için Vec'ün Rc<Player> kullanılması yolu tercih edilmiştir. Ancak bu
-    özellikle add_friends metodunda vektör içeriğine mutable erişmeyi gerektirir. Bu nedenle
-    vektöre referansının da mutable olarak ele alınabilmesi gerekir. Normalde birden fazla sahip
-    varken mutable olma hali derleme hatasına yol açabilir. RefCell kullanımı ile bunu runtime'a
-    taşırız. Yani ownership kontrolünü runtime tarafında işleriz.
+   Yukarıdaki senaryoda bir Player'ın kendisini tutan bir Vector nesnesine ihtiyacı olmuştur.
+   Bunun için Vec'ün Rc<Player> kullanılması yolu tercih edilmiştir. Ancak bu
+   özellikle add_friends metodunda vektör içeriğine mutable erişmeyi gerektirir. Bu nedenle
+   vektöre referansının da mutable olarak ele alınabilmesi gerekir. Normalde birden fazla sahip
+   varken mutable olma hali derleme hatasına yol açabilir. RefCell kullanımı ile bunu runtime'a
+   taşırız. Yani ownership kontrolünü runtime tarafında işleriz.
 
-    Bu kullanımda borrow_mut ve borrow metot çağrımları söz konusudur. Bu çağrımlar esasında
-    RefCell türevli Ref<T> ve RefMut<T> trait'lerini kullanır.
- */
+   Bu kullanımda borrow_mut ve borrow metot çağrımları söz konusudur. Bu çağrımlar esasında
+   RefCell türevli Ref<T> ve RefMut<T> trait'lerini kullanır.
+*/
 
 #[derive(Debug)]
 struct Player {

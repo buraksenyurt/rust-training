@@ -23,9 +23,10 @@ Buradaki konular ile ilgili birde Youtube serimiz var. ["Birlikte Rust Öğrenel
 - [x] S14 - Modules, Crates, Packages
 - [x] S15 - Error Handling
 - [x] S16 - Testing
-- [ ] S17 - Closures
-- [ ] S18 - Smart Pointers
-- [ ] S19 - 
+- [x] S17 - Closures
+- [x] S18 - Smart Pointers (Box<T>)
+- [x] S19 - Smart Pointers (Rc<T> ve RefCell<T>)
+- [ ] S20 - Threads
 - [ ] S99 - Questions
 
 ## Yardımcılar

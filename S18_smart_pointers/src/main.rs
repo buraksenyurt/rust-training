@@ -38,15 +38,15 @@ fn main() {
     // run_rc_with_error_2();
 
     /*
-        Alttaki senaryoda aslında farklı kullanım şekilleri de söz konusu olabilir.
+       Alttaki senaryoda aslında farklı kullanım şekilleri de söz konusu olabilir.
 
-        - Sadece bir vektör üzerinde çalışma yapıyorsak RefCell<Vec<Player>> kullanımı yeterlidir.
-        - Vektörün paylaşımı söz konusu ise Rc<RefCell<Vec<Player>>> daha uygun olabilir.
-        - Hem vektörü hem de içindeki elemanları paylaşmamız gerekirse Rc<Vec<RefCell<Player>>>
-            daha iyi bir çözüm olabilir.
+       - Sadece bir vektör üzerinde çalışma yapıyorsak RefCell<Vec<Player>> kullanımı yeterlidir.
+       - Vektörün paylaşımı söz konusu ise Rc<RefCell<Vec<Player>>> daha uygun olabilir.
+       - Hem vektörü hem de içindeki elemanları paylaşmamız gerekirse Rc<Vec<RefCell<Player>>>
+           daha iyi bir çözüm olabilir.
 
-        Tabii şunu uutmamamak lazım ki hem Rc hem de RefCell kullanımı nedeniyle
-        runtime maliyeti daha yüksektir (Zir burada referans sayımı ve mutasyon kontrolleri yapılır)
-     */
+       Tabii şunu uutmamamak lazım ki hem Rc hem de RefCell kullanımı nedeniyle
+       runtime maliyeti daha yüksektir (Zira burada referans sayımı ve mutasyon kontrolleri yapılır)
+    */
     run_rc();
 }
