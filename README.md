@@ -109,3 +109,24 @@ RefCell < T > türünün senaryosu ile biraz karışık gelebilir zira ödünç 
 Smart Pointer kullanımı ile ilgili şöyle özet bilgi de verebiliriz.
 
 ![image](https://github.com/user-attachments/assets/9d0fdc34-a201-40dc-b8db-b6399ef6e825)
+
+S19' da ele alınmaya başlayan thread kavramı ayrıca Concurrency ve Parallel Programming gibi modellerle de yakın ilişkilidir. Bu noktada Concurrency _(Eş Zamanlılık) ve Paralel programlama modelleri arasındali farkları da bilmek gerekir.
+
+Concurrency modelinde temel amaç bir sistemin birden fazla görevi _(task)_ yönetibilmesini veya reaksiyon verebilmesini sağlamaktır. Başlatılan görevler ya da işler aynı anda tamamlanmasa bile sistem sanki hepsini aynı anda çalışıyormuş gibi görünebilir.  Yani aslında sistem başlatılan görevler arasında küçük zaman dilimlerinde geçişler yaparak sıralı bir işleyişi yerine getirir. Bunu yaparken birden fazla thread kullanımı tekniklerden birisidir ama örneğin event loop isimli teknikle de bu mümkün olabilir.
+
+Parallel Programming modelinde amaç işlemleri _(ya da hesaplamaları)_ aynı anda gerçekleştirmektir. Ancak bu yapılırken gerçekten de aynı anda çalışan fiziki iş parçacıkları söz konusudur. Dolayısıyla çekirdek sayısı ve kaynaklar bu metodoloji de kilit noktadır. Mesela büyük bir veri kümesinin sekiz parçaya bölünüp her parçanın bir cpu çekirdeği tarafından işlenmesi buna örnek gösterilebilir. Bu modelde thread'ler fiziksel olarak paralel şekilde çalıştırılır.
+
+# Concurrency ve Parallel Programming Arasındaki Farklar
+
+# Rust'ta Concurrency ve Parallel Programming Arasındaki Farklar
+
+|                 | **Concurrency**                                           | **Parallel Programming**                                                 |
+|-----------------|-----------------------------------------------------------|--------------------------------------------------------------------------|
+| **Tanım**       | Birden fazla işin aynı anda başlatılması ve yönetilmesi.  | Birden fazla işin fiziksel olarak aynı anda gerçekleştirilmesi.          |
+| **Amaç**        | Görevlerin birbirine karışmadan yönetilmesi.              | İşlerin gerçekten fiziksel kaynaklar arasında bölünerek hızlandırılması. |
+| **Araçlar**     | `async/await`, `Future`, `tokio`, `async-std`             | `thread::spawn`, `rayon`, veya işlemci çekirdeği bazlı.                  |
+| **Planlama**    | Zamanlayıcı bir araç söz konusudur (`tokio` gibi).        | OS veya kütüphane thread'ler üzerinden paralellik sağlar.                |
+| **Eşzamanlılık** | İşler sırayla veya birbirine bağımlı olmadan çalışabilir. | İşler fiziksel olarak aynı anda çalışır.                                 |
+| **Örnek**       | Asenkron dosya I/O, web sunucuları.                       | Büyük veri işleme, paralel hesaplama.                                    |
+
+Tabii asenkron çalışma modelleri söz konusu olunca Golang ve Goroutine'ler akla geliyor hemen. Goroutine'ler esasında Coroutine olarak da bilinen bir modelin uyarlamasıdır. Aslında Coroutine'ler görevler _(task)_ arasında hızlı ve kolay geçişler yapılmasını sağlayarak asenkronluğu sağlamak için kullanılır. Golang' de Goroutine çalışma zamanı bunu otomatik olarak yönetir. Rust tarafında benzer bir amaçla Future'lar kullanılır ama genelde harici bir excutor vardır. Mesela en popülerlerinden birisi tokio crate'tir. Asenkron programlamada hafıza yönetimi de önemlidir ki Rust bilindiği üzere bir Garbage Collector içermez. Bunun yerine ownership ve borrow checker modelleri devreye girer ve hatta eş zamanlı olarak aynı veri kümelerinde çalışılacağı zaman bazı smart pointer'ler ve Mutex'ler ele alınır. Performans açısından bir kıyaslama yapmak doğru mudur emin değilim ama Golang tarafındaki Goroutine'ler hafif ve hızlıdır. Rust ise daha kontrollü ve memory safe bir alan sağlar.
