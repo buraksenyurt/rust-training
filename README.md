@@ -116,10 +116,6 @@ Concurrency modelinde temel amaç bir sistemin birden fazla görevi _(task)_ yö
 
 Parallel Programming modelinde amaç işlemleri _(ya da hesaplamaları)_ aynı anda gerçekleştirmektir. Ancak bu yapılırken gerçekten de aynı anda çalışan fiziki iş parçacıkları söz konusudur. Dolayısıyla çekirdek sayısı ve kaynaklar bu metodoloji de kilit noktadır. Mesela büyük bir veri kümesinin sekiz parçaya bölünüp her parçanın bir cpu çekirdeği tarafından işlenmesi buna örnek gösterilebilir. Bu modelde thread'ler fiziksel olarak paralel şekilde çalıştırılır.
 
-# Concurrency ve Parallel Programming Arasındaki Farklar
-
-# Rust'ta Concurrency ve Parallel Programming Arasındaki Farklar
-
 |                 | **Concurrency**                                           | **Parallel Programming**                                                 |
 |-----------------|-----------------------------------------------------------|--------------------------------------------------------------------------|
 | **Tanım**       | Birden fazla işin aynı anda başlatılması ve yönetilmesi.  | Birden fazla işin fiziksel olarak aynı anda gerçekleştirilmesi.          |
