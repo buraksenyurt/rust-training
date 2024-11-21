@@ -24,9 +24,9 @@ Buradaki konular ile ilgili birde Youtube serimiz var. ["Birlikte Rust Öğrenel
 - [x] S15 - Error Handling
 - [x] S16 - Testing
 - [x] S17 - Closures
-- [x] S18 - Smart Pointers _(Box<T>)_
-- [x] S19 - Smart Pointers _(Rc<T> ve RefCell<T>)_
-- [ ] S20 - Concurrency _(Threads)_
+- [x] S18 - Smart Pointers _(Box<T>, Rc<T> ve RefCell<T>)_
+- [x] S19 - Concurrency _(Threads)_
+- [ ] S20 - 
 - [ ] S21 - 
 - [ ] S99 - Questions
 
