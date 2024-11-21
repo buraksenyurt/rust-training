@@ -14,6 +14,8 @@ fn main() {
     // move_keyword_error();
     // move_keyword_success();
     // multiple_threads_sample();
+
+    // run_with_error();
     // run_inconsistent();
     // run_safely();
     run_mutex();

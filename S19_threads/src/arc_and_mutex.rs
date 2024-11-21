@@ -1,13 +1,13 @@
 use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::Duration;
-// fn run_with_error() {
-//     let data = Arc::new(vec![
+// pub fn run_with_error() {
+//     let data = vec![
 //         "Service Red: Task A",
 //         "Service Blue: Task B",
 //         "Service Green: Task C",
 //         "Service Alpha: Task D",
-//     ]);
+//     ];
 //
 //     let mut handles = vec![];
 //
@@ -43,7 +43,7 @@ use std::time::Duration;
 //     for i in 0..4 {
 //         /*
 //            Thread'ler için verinin referansını Arc ile klonluyoruz.
-//            Böylece thread'ler erişebilir.
+//            Böylece thread'ler ilgili veriye erişebilirler.
 //         */
 //
 //         let data_clone = Arc::clone(&data);
@@ -52,11 +52,11 @@ use std::time::Duration;
 //             for j in 0..data_clone.len() {
 //                 /*
 //                    Aşağıda ise veri üzerinde bir güncelleme yapmaktayız.
-//                    Bu derleme zamanında
+//                    Bu güncelleme işlemi derleme zamanında
 //
 //                    error[E0596]: cannot borrow data in an `Arc` as mutable
 //
-//                    hatasının oluşmasına neden olacaktır. Zira Arc ile veriye eş zamanlı erişmek
+//                    hatasının oluşmasına sebep olur. Zira Arc ile veriye eş zamanlı erişmek
 //                    mümkünken güvenli bir şekilde değiştirmek söz konusu değildir.
 //
 //                    istisna olarak unsafe bir yaklaşım ile bu durum ihlal edilebilir.
