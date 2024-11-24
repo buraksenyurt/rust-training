@@ -1,6 +1,7 @@
 use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::Duration;
+
 // pub fn run_with_error() {
 //     let data = vec![
 //         "Service Red: Task A",
@@ -31,6 +32,36 @@ use std::time::Duration;
 //         handle.join().unwrap();
 //     }
 // }
+
+pub fn run_correctly() {
+    let data = Arc::new(vec![
+        "Service Red: Task A",
+        "Service Blue: Task B",
+        "Service Green: Task C",
+        "Service Alpha: Task D",
+    ]);
+
+    let mut handles = vec![];
+
+    /*
+       Yukarıda moved hatası nedeniyle hatalı çalışan senaryoda Arc kullanılarak gerekli
+       çözüm sağlanabilir.
+    */
+    for i in 0..2 {
+        let data_clone = Arc::clone(&data);
+        let handle = thread::spawn(move || {
+            for task in data_clone.iter() {
+                println!("Thread '{}' is processing '{}'", i, task);
+            }
+        });
+
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+}
 
 /*
    Arc kullanılarak thread'lerin veriye güvenli bir şekilde erişmesi sağlanabilir

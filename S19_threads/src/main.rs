@@ -16,9 +16,10 @@ fn main() {
     // multiple_threads_sample();
 
     // run_with_error();
+    run_correctly();
     // run_inconsistent();
     // run_safely();
-    run_mutex();
+    // run_mutex();
 
     println!("After the thread calling");
 }
