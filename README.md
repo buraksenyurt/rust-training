@@ -26,7 +26,7 @@ Buradaki konular ile ilgili birde Youtube serimiz var. ["Birlikte Rust Öğrenel
 - [x] S17 - Closures
 - [x] S18 - Smart Pointers _(Box<T>, Rc<T> ve RefCell<T>)_
 - [x] S19 - Concurrency _(Threads)_
-- [ ] S20 - 
+- [x] S20 - Concurrency _(Arc<T> ve Mutex)
 - [ ] S21 - 
 - [ ] S99 - Questions
 
