@@ -148,3 +148,47 @@ Kanallar genellikle aşağıdaki türden senaryolarda ele alınabilirler.
 - Kullanıcı arayüz olaylarının ana döngüye iletilmesi.
 - Veri okuma, veriyi işleme ve işlenen veriyi yazma sürecinin sıralı şekilde farklı iş parçacıklarında çalıştırılması.
 - Dağıtık sistemde tüm logların merkezi bir noktada toplanması.
+
+Standart kütüphanede yer alan mpsc::channel veri yapısı aslında mesaj gönderimlerinde asenkronluk sağlar. Tokio küfesi ise hem mesaj gönderimi hem de mesaj alımında asenkronluk sağlar. Dolayısıyla birden çok producer ve birden çok consumer kullanılmak istenen durumlarda asenkronluğu tam olarak sağladığı için tokio küfesini kullanmak daha doğrudur. Standart kütüphanedeki mpsc modeli daha çok thread'ler arası senkron mesajlaşma da öne çıkarken görevler _(task)_ arasında mesajlaşmalarda tokio küfesi daha ideal olabilir. Bu konuyla ilgili olarak S20_channels projesindeki do_with_standard ile do_with_tokio örneklerinin çalışma zamanı çıktılarına bakılabilir.
+
+do_with_standard fonksiyonunda main thread'in bir for döngüsü ile bloklanması söz konusudur. Buna göre receiver tarafı ilgili döngü bitemeden mesakları okuyamayacaktır. Ancak tokio kullanılan örnekte ilgili for döngüsü asenkron bir şekilde çalıştırılır. Bu durumda main thread, fonksiyon içindeki kanal bazlı mesajlaşmayı bloklamaz. Aşağıda çalışma zamanına ait çıktılar yer almaktadır.
+
+Standart kütüphanedeki mpsc kullanımı.
+
+```shell
+Standard mpsc scenario
+Waiting for all tasks...
+Main task is working...Counting 0
+Main task is working...Counting 1
+Main task is working...Counting 2
+Main task is working...Counting 3
+Main task is working...Counting 4
+Main task is working...Counting 5
+Main task is working...Counting 6
+Main task is working...Counting 7
+Main task is working...Counting 8
+Main task is working...Counting 9
+Task 5 completed
+Task 2 completed
+Task 3 completed
+Task 1 completed
+Task 4 completed
+All tasks completed!
+```
+
+tokio ve asenkron ile birlikte kullanım.
+
+```shell
+async scenario with tokio
+Waiting for all tasks...
+Main task is working...Counting 0
+Main task is working...Counting 1
+Main task is working...Counting 2
+Main task is working...Counting 3
+Task 4 completed
+Task 1 completed
+Task 2 completed
+Task 5 completed
+Task 3 completed
+All tasks completed!
+```
