@@ -27,7 +27,8 @@ Buradaki konular ile ilgili birde Youtube serimiz var. ["Birlikte Rust Öğrenel
 - [x] S18 - Smart Pointers _(Box<T>, Rc<T> ve RefCell<T>)_
 - [x] S19 - Concurrency _(Threads)_
 - [x] S20 - Concurrency _(Arc<T> ve Mutex)
-- [ ] S21 - 
+- [ ] S21 - Channels
+- [ ] S22 -
 - [ ] S99 - Questions
 
 ## Yardımcılar
@@ -129,3 +130,21 @@ Parallel Programming modelinde amaç işlemleri _(ya da hesaplamaları)_ aynı a
 | **Örnek**       | Asenkron dosya I/O, web sunucuları.                       | Büyük veri işleme, paralel hesaplama.                                    |
 
 Tabii asenkron çalışma modelleri söz konusu olunca akla Go programlama dili ve ona has kabul edilen Goroutine'ler akla gelmektedir. **Goroutine**'ler esasında **Coroutine** olarak da bilinen bir modelin uyarlamasıdır.  Coroutine'ler görevler _(task)_ arasında hızlı ve kolay geçişler yapılmasını sağlayarak asenkronluğu icra etmek için kullanılır. Golang' de Goroutine çalışma zamanı bunu otomatik olarak yönetir. Rust tarafında benzer bir amaçla Future'lar kullanılır ama genelde harici bir executor' a ihtiyaç duyulur. Bu executor'lardan en popüleri artık defacto haline gelmiş olan tokio paketidir. Asenkron programlamada hafıza yönetimi de önemlidir ki Rust bilindiği üzere bir **Garbage Collector** mekanizması içermez ama bellek güvenliğini önceliklendirir. Burada **ownership** ve **borrow checker** modelleri devreye girer ve hatta eş zamanlı olarak aynı veri kümelerinde çalışılacağı zaman bazı smart pointer'ler ve **Mutex**'ler ele alınır. Performans açısından bir kıyaslama yapmak doğru mudur emin değilim ama Golang tarafındaki Goroutine'ler hafif _(az yer kaplar, çalışmak için az kaynağa ihtiyaç duyar)_ ve hızlıdır. Rust ise daha kontrollü ve memory safe bir alan sağlar.
+
+**S20** numaralı bölümde thread'ler arası veri transferi için kullanılan kanallar konusuna bakılıyor. Ele alınan örneklerde multi_producer ile multi_producer_2 fonksiyonlarının çalışma şekilleri arasında farklılık var. Eğer multi_producer örneğinde transmitter nesnesi açık bir şekilde drop edilmesse for döngüsü sonsuza kadar açık kalabilir. Diğer örnekte yani multi_producer_2'de ise böyle bir sorun oluşmaz zira transmitter ve diğer klonu oluşturuldukları thread'ler içerisinde sonlanarak bellekten düşürülürler. Her ikisi arasındaki farkları aşağıdaki tablo ile yorumlayabiliriz.
+
+| Durum                            | `multi_producer`                                                   | `multi_producer_2`                                        |
+|----------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------|
+| **Transmitter Referans Sayısı**  | 1 orijinal + 10 klon                                               | 1 orijinal + 1 klon                                       |
+| **Transmitter Yaşam Süresi**     | Orijinal ve klonlanan transmitter nesneleri otomatik olarak düşmez | Transmitter'lar iş parçacıkları ile sonlanırken düşer     |
+| **Kanal Kapanışı**               | `drop(transmitter)` yapılmazsa sonsuza kadar açık kalır            | Tüm transmitter nesneleri iş parçacıkları bitince kapanır |
+| **`for` Döngüsü Tamamlanır mı?** | Hayır _(transmitter açıkça drop edilmediği sürece)_                  | Evet                                                      |
+
+Kanallar genellikle aşağıdaki türden senaryolarda ele alınabilirler.
+
+- Planlamış görev sonuçlarının bir ana iş parçacığından toplanıp raporlanması.
+- Web sunucularına gelen HTTP isteklerinin birden fazla iş parçacığına dağıtılması.
+- Bir sistemde gerçekleşen olayların asenkron olay döngüsünde (event loop) ele alınması.
+- Kullanıcı arayüz olaylarının ana döngüye iletilmesi.
+- Veri okuma, veriyi işleme ve işlenen veriyi yazma sürecinin sıralı şekilde farklı iş parçacıklarında çalıştırılması.
+- Dağıtık sistemde tüm logların merkezi bir noktada toplanması.
