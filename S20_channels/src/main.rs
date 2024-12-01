@@ -12,22 +12,27 @@
    sayesinden kanalların asenkron çalıştırılması da sağlanabilir.
 */
 use crate::basic::*;
+use crate::problems::*;
 use crate::scenarios::*;
 
 mod basic;
+mod problems;
 mod scenarios;
-
-// fn main() {
-//     // hello_channels();
-//     // multi_producer();
-//     // multi_producer_2();
-//     process_reports();
-// }
-
-#[tokio::main]
-async fn main() {
-    println!("Standard mpsc scenario");
-    do_with_standard();
-    println!("async scenario with tokio");
-    do_with_tokio().await
+fn main() {
+    // hello_channels();
+    // multi_producer();
+    // multi_producer_2();
+    // process_reports();
+    // deadlock_case();
+    // deadlock_case_banking();
+    // poisoning_case();
+    poisoning_case_logging();
 }
+
+// #[tokio::main]
+// async fn main() {
+//     println!("Standard mpsc scenario");
+//     do_with_standard();
+//     println!("async scenario with tokio");
+//     do_with_tokio().await
+// }
