@@ -6,6 +6,8 @@ Buradaki konular ile ilgili birde Youtube serimiz var. ["Birlikte Rust Öğrenel
 
 ## Konular
 
+S koduyla başlayan projelerde aşağıdaki konu başlıkları ele alınmıştır. Orijinal sıralama için youtube video serisine bakabilirsiniz. Buradaki kodlar anlatımları desteklemek amacıyla kullanılır.
+
 - [x] S00 - Hello World
 - [x] S01 - Variables, Mut and Scalar Types
 - [x] S02 - Vectors and Slices
@@ -25,10 +27,9 @@ Buradaki konular ile ilgili birde Youtube serimiz var. ["Birlikte Rust Öğrenel
 - [x] S16 - Testing
 - [x] S17 - Closures
 - [x] S18 - Smart Pointers _(Box<T>, Rc<T> ve RefCell<T>)_
-- [x] S19 - Concurrency _(Threads)_
-- [x] S20 - Concurrency _(Arc<T> ve Mutex)
-- [ ] S21 - Channels
-- [ ] S22 -
+- [x] S19 - Concurrency _(Threads, Arc<T> ve Mutex)_
+- [x] S20 - Channels, Deadlock & Thread Poisoning
+- [ ] S21 -
 - [ ] S99 - Questions
 
 ## Yardımcılar
