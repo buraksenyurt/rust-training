@@ -29,7 +29,7 @@ S koduyla başlayan projelerde aşağıdaki konu başlıkları ele alınmıştı
 - [x] S18 - Smart Pointers _(Box<T>, Rc<T> ve RefCell<T>)_
 - [x] S19 - Concurrency _(Threads, Arc<T> ve Mutex)_
 - [x] S20 - Channels, Deadlock & Thread Poisoning
-- [ ] S21 -
+- [ ] S21 - Macros
 - [ ] S99 - Questions
 
 ## Yardımcılar
@@ -193,3 +193,18 @@ Task 5 completed
 Task 3 completed
 All tasks completed!
 ```
+
+S21 isimli bölümde makrolar ele alınmaktadır. Macro kavramı Rust için önemlidir. Metadata programming'de ele alınan bu enstrüman kod yazan kodlar oluşturmamızı kolaylaştırır. Kod tekrarını önlemek için önemli bir araçtır. Makrolar declarative ve procedural olmak üzere ikiye ayrılır. Makrolarda metasyntactic variables adı verilen token'lar kullanılır. Bunların bir kısmı aşağıdaki tabloda görüldüğü gibidir. 
+
+| Token     | Açıklama                                                              | Örnek                                             |
+|-----------|-----------------------------------------------------------------------|---------------------------------------------------|
+| `ident`   | Değişken, fonksiyon, struct adı gibi tanımlayıcıyıları temsil edir    | `User`, `my_function`, `x`                        |
+| `ty`      | Belirli bir türü temsil eder _(örneğin, `f32`, `String`, `Vec<i32>`)_ | `f32`, `String`, `Option<T>`                      |
+| `expr`    | Bir expression anlamına gelir.                                        | `5 + 4`, `"hello world"`, `vec![1, 2, 3, 4, 10]`  |
+| `stmt`    | Bir ifade ya da bildirim anlamına gelir.                              | `let range = 50;`, `return 3.14;`                 |
+| `path`    | Modül ya da tür yolu için kullanılır                                  | `std::io::Read`, `crate::module::function`        |
+| `literal` | Sabit değer anlamına gelir (string, sayı, boolean).                   | `23`, `"rustacean"`, `false`                      |
+| `block`   | `{}` bloğunu temsil eder.                                             | `{ let x = 10; x + 1 }`                           |
+| `item`    | struct, enum, fn gibi enstrümanları temsil eder.                      | `struct Product;`, `fn send_email() {}`           |
+| `meta`    | Bir attribute' u temsil eder.                                         | `#[derive(Debug)]`, `#[cfg(target_os = "linux")]` |
+| `tt`      | Herhangi bir "token tree" ağacını temsil eder.                        | Herhangi bir Rust kodu parçası olabilir           |
