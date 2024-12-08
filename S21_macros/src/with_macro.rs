@@ -62,5 +62,6 @@ mod tests {
         assert_eq!(c64.id, 1);
         assert_eq!(c64.title, "C64 monitor 14.1inch".to_string());
         assert_eq!(c64.list_price, 999.99);
+        assert_eq!(c64.category, "Retro Computer".to_string());
     }
 }

@@ -7,6 +7,7 @@
    Declarative ve Procedural olmak üzere iki ana kategoriye ayırabiliriz.
 */
 mod model;
+mod samples;
 mod with_macro;
 mod without_macro;
 
