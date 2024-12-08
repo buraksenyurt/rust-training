@@ -194,7 +194,7 @@ Task 3 completed
 All tasks completed!
 ```
 
-S21 isimli bölümde makrolar ele alınmaktadır. Macro kavramı Rust için önemlidir. Metadata programming'de ele alınan bu enstrüman kod yazan kodlar oluşturmamızı kolaylaştırır. Kod tekrarını önlemek için önemli bir araçtır. Makrolar declarative ve procedural olmak üzere ikiye ayrılır. Makrolarda metasyntactic variables adı verilen token'lar kullanılır. Bunların bir kısmı aşağıdaki tabloda görüldüğü gibidir. 
+S21 isimli bölümde makrolar ele alınmaktadır. Macro kavramı Rust için önemlidir. Metadata programming'de ele alınan bu enstrüman kod yazan kodlar oluşturmamızı kolaylaştırır. Kod tekrarını önlemek için önemli bir araçtır. Makrolar declarative ve procedural(Attribute Macro olarak da geçer. derive ile kullandıklarımızı düşünebiliriz) olmak üzere ikiye ayrılır. Makrolarda metasyntactic variables adı verilen token'lar kullanılır. Bunların bir kısmı aşağıdaki tabloda görüldüğü gibidir. 
 
 | Token     | Açıklama                                                              | Örnek                                             |
 |-----------|-----------------------------------------------------------------------|---------------------------------------------------|
