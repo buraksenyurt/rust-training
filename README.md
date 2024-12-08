@@ -208,3 +208,14 @@ S21 isimli bölümde makrolar ele alınmaktadır. Macro kavramı Rust için öne
 | `item`    | struct, enum, fn gibi enstrümanları temsil eder.                      | `struct Product;`, `fn send_email() {}`           |
 | `meta`    | Bir attribute' u temsil eder.                                         | `#[derive(Debug)]`, `#[cfg(target_os = "linux")]` |
 | `tt`      | Herhangi bir "token tree" ağacını temsil eder.                        | Herhangi bir Rust kodu parçası olabilir           |
+
+Macro'lar çok güçlü araçlardır. Derleme zamanında veri yapılarının analiz edilip yeni kodlar üretilmesi veya var olan kod yapılarının değiştirilmesinde kullanılabilirler. Pek tabii derleme zamanı süresini uzatmaları da söz konusudur. macro_rules! ile yazılan declarative macro'lar ile derive attribute makrosu ile kullanılabilen procedural versiyonların avantaj ve dezavantajları aşağıdaki tablodaki gibi özetlenebilir.
+
+| Özellik                  | Declarative Macros (`macro_rules!`)                    | Procedural Macros                                             |
+|--------------------------|--------------------------------------------------------|---------------------------------------------------------------|
+| **Kullanım Zorluğu**     | Basit, hızlı öğrenilir                                 | Daha karmaşıktır ve öğrenmesi zaman alır                      |
+| **Kod Genişletme**       | Pattern matching ile belirgin genişletme sağlar        | Kod analizi ile daha karmaşık işlemler yapılabilir            |
+| **Hata Mesajları**       | Derleyici hatalarının anlaşılması zor olabilir         | Daha karmaşık hatalar üretir                                  |
+| **Performans**           | Çok hızlıdır, compile-time'da minimal etkisi vardır    | Derleme süresinin artmasına neden olabilir                    |
+| **Karmaşıklık Yönetimi** | Büyük ve karmaşık işleri yönetmek zordur               | Büyük projelerde karmaşıklığın daha iyi yönetilmesini sağlar  |
+| **Kapsam**               | Kod tekrarını azaltma veya basit DSL'ler için idealdir | Gelişmiş DSL'ler, derive ve attribute işlevleri için idealdir |
