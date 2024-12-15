@@ -29,7 +29,9 @@ S koduyla başlayan projelerde aşağıdaki konu başlıkları ele alınmıştı
 - [x] S18 - Smart Pointers _(Box<T>, Rc<T> ve RefCell<T>)_
 - [x] S19 - Concurrency _(Threads, Arc<T> ve Mutex)_
 - [x] S20 - Channels, Deadlock & Thread Poisoning
-- [ ] S21 - Macros
+- [x] S21 - Macros
+- [x] S22 - Paralel Çalışma _(Sıralı, Thread Based ve Rayon ile)_
+- [ ] S23 -
 - [ ] S99 - Questions
 
 ## Yardımcılar
