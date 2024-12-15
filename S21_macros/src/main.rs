@@ -57,17 +57,17 @@ fn sum() {
 }
 
 /*
-    Log çıktılarını görmek için uygulamayı linux platformunda
+   Log çıktılarını görmek için uygulamayı linux platformunda
 
-        RUST_LOG=info cargo run
+       RUST_LOG=info cargo run
 
-    ile,
-    Windows platformunda Powershell' de ise
+   ile,
+   Windows platformunda Powershell' de ise
 
-        set RUST_LOG=info && cargo run
+       set RUST_LOG=info && cargo run
 
-    ile çalıştırabiliriz.
- */
+   ile çalıştırabiliriz.
+*/
 fn main() {
     env_logger::init();
 

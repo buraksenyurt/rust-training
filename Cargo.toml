@@ -25,4 +25,4 @@ members = [
     , "S21_macros"
     , "proc_macros"
     , "S99_questions"
-]
+, "S22_parallelism"]
