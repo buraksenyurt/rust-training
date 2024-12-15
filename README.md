@@ -30,8 +30,8 @@ S koduyla başlayan projelerde aşağıdaki konu başlıkları ele alınmıştı
 - [x] S19 - Concurrency _(Threads, Arc<T> ve Mutex)_
 - [x] S20 - Channels, Deadlock & Thread Poisoning
 - [x] S21 - Macros
-- [x] S22 - Paralel Çalışma _(Sıralı, Thread Based ve Rayon ile)_
-- [ ] S23 -
+- [x] S22 - Parallelism _(Sequential vs Thread Based vs With Rayon)_
+- [ ] S23 - Asynchronous Programming
 - [ ] S99 - Questions
 
 ## Yardımcılar
@@ -221,3 +221,15 @@ Macro'lar çok güçlü araçlardır. Derleme zamanında veri yapılarının ana
 | **Performans**           | Çok hızlıdır, compile-time'da minimal etkisi vardır    | Derleme süresinin artmasına neden olabilir                    |
 | **Karmaşıklık Yönetimi** | Büyük ve karmaşık işleri yönetmek zordur               | Büyük projelerde karmaşıklığın daha iyi yönetilmesini sağlar  |
 | **Kapsam**               | Kod tekrarını azaltma veya basit DSL'ler için idealdir | Gelişmiş DSL'ler, derive ve attribute işlevleri için idealdir |
+
+S23 bölümünde asenkron programlama ile ilgili bazı kavramlar yer alır. Genellikle thread ile async/await kullanımları birbirlerine karıştırılabilir ve hangi durumda hangisinin kullanılması gerektiğine karar vermek zorlaşabilir. Aşağıda bu duruma istinaden bir karşılaştırma tablosu yer almaktadır.
+
+| **Kriter**            | **Thread**                                                                                                                                   | **Async/Await**                                                                                                                                             |
+|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Paralellik**        | Gerçek paralell çalışma ortamı söz konusudur _(çok çekirdek desteği)_                                                                        | Genellikle tek thread üzerinde iş birliği ile çalışır _(Bu bir çalışma zamanı da gerektirir, async-std, tokio gibi)_                                        |
+| **Kaynak Kullanımı**  | Ağır _(her thread kendi stack alanını taşır ve bu varsayılan olarak 2Mbtır)_ Thread'ler Idle durumdayken bile enerji sarf ettirir.           | Hafif _(runtime tarafından yönetilen task' lar söz konusudur)_                                                                                              |
+| **Bloklama**          | I/O seviyesinde bloklamalar varsa tüm thread'ler etkilenir.                                                                                  | I/O bloklama diğer görevleri etkilemez.                                                                                                                     |
+| **Ölçeklenebilirlik** | Thread sayısı fiziksel sınırlamalara bağlıdır _(Çekirdek sayısı gibi)_ Çok fazla thread açılması sistemde aşırı yüklenmelere neden olabilir. | Binlerce asenkron görev oluşturulabilir.                                                                                                                    |
+| **Kod Karmaşıklığı**  | Göreceli bir durumdur, nispeten basittir.                                                                                                    | Hata ve bağımlılıkların yönetimi karmaşık olabilir.                                                                                                         |
+| **Senaryolar**        | İşlemci yoğun/öncelikli işler için uygundur.                                                                                                 | Daha çok I/O yoğun işler için uygundur.                                                                                                                     |
+| **Ne zaman?**         | CPU yoğun işlerde _(Ağır matematiksel hesaplamalar)_, her görevin tam bağımsız ve paralel çalışması gerektiği durumlar                       | Web istekleri, dosya erişimleri gibi I/O yoğun işler, yüksek ölçeklenebilirlik gerektiren hafif işler, enerji ve kaynak tasarrufunun önemli olduğu durumlar |
