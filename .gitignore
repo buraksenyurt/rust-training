@@ -21,6 +21,7 @@ node_modules
 *.bin
 *.dat
 *.cargo-lock
+*.logs
 workspace.xml
 
 bin/*

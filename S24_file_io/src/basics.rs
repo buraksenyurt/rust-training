@@ -3,6 +3,10 @@ use std::fs::{File, OpenOptions};
 use std::io::{Read, Write};
 use std::{fs, io};
 
+/*
+   Aşağıdaki metot games.dat isimli bir dosya oluşturur. Sistemde varsa append modda açar ve
+   gelen içeriği sonuna ekleyerek devam eder.
+*/
 fn append_game(game: &Game) -> io::Result<()> {
     let mut file = OpenOptions::new()
         .create(true)
@@ -12,6 +16,10 @@ fn append_game(game: &Game) -> io::Result<()> {
     Ok(())
 }
 
+/*
+    Bu fonksiyon ise path ile gelen dosya içeriğini okuyup geriye döndürür.
+    Metin tabanlı dosyalar için ele alınan bir yöntemdir.
+*/
 fn read(path: &str) -> io::Result<String> {
     // if !fs::metadata(path).is_ok() {
     //     panic!("File does not exist: {}", path);
