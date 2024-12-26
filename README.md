@@ -31,7 +31,8 @@ S koduyla başlayan projelerde aşağıdaki konu başlıkları ele alınmıştı
 - [x] S20 - Channels, Deadlock & Thread Poisoning
 - [x] S21 - Macros
 - [x] S22 - Parallelism _(Sequential vs Thread Based vs With Rayon)_
-- [ ] S23 - Asynchronous Programming
+- [x] S23 - Asynchronous Programming
+- [ ] S24 - File I/O Operations
 - [ ] S99 - Questions
 
 ## Yardımcılar
