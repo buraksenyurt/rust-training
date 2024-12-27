@@ -238,6 +238,32 @@ S23 bölümünde asenkron programlama ile ilgili bazı kavramlar yer alır. Gene
 
 S24' te dosya yazma ve okuma işlemleri ele alınırken, S25'te stream işlemlerine bakılıyor. Stream' ler genellikle devamlı ve dinamik veri akışı senaryolarında ele alınır. Veri bir kaynak tarafından üretildikçe _(Network olabilir, stdin olabilir)_ , bir tüketici tarafından da işlenebilir. TCP/UDP üzerinden yapılan hareketler için ideal bir kullanım şeklidir. Dosya I/O ile stream enstrümanları arasındaki farklar aşağıdaki tabloda özetlenmeye çalışılmıştır. Rust tarafında stream'ler söz konusu olduğunda genellik stdin, stdout ve stderr modüllere göz önüne alınır. Bunlarla File I/O operasyonları bağlanabilirdir. Yani bir dosyaya yazma işlemi için stdout'tan faydalınabilir.
 
+Diğer yandan stdin, stdout ve stderr kökenleri UNIX ve POSIX _(Portable Operating System Interface)_ standartlarına kadar dayanır. Genellikle programlar arasında stdin ve stdout üzerinden bağlamlar oluşturmak ve veri akışlarını _(streams)_ tesis etmek için kullanılırlar. 
+
+stdin temelde kullanıcıdan veya başka bir programdan veri almak, stdout programın normal çıktısını kullanıcıya veya başka bir programa iletmek, stderr ise hata mesajlarını ayırmak maksadıyla geliştirilmiş standartlardır. Bu noktada |(pipe) ve >(redirect) sıklıkla karşılaşılan terminal operatörleridir.
+
+|, stdout çıktısını başka bir programın stdin girişine yönlendirmek için kullanılır. Örneğin,
+
+```shell
+ls | grep ".rs"
+```
+
+gibi.
+
+`>` ise bir komutun stdout çıktısını bir dosyaya yönlendirmek için kullanılır. Örneğin,
+
+```shell
+ls > files.txt
+```
+
+gibi.
+
+Birde >>(Append) vardır. > gibi yönlendirme yapar ama mevcut dosyasının üzerine yazmak yerine sonuna ekleme yapar. Örneğin,
+
+```shell
+echo "Some thoughts about you" >> memories.txt
+```
+
 # File I/O ve Stream Karşılaştırması
 
 | **Özellik**        | **File I/O**                         | **Stream**                                                                  |
@@ -246,3 +272,5 @@ S24' te dosya yazma ve okuma işlemleri ele alınırken, S25'te stream işlemler
 | **Kaynak**         | Disk üzerindeki sabit dosyalar       | Dinamik kaynaklar _(tcp/udp gibi ağ protokolleri, stdin)_                   |
 | **Sonlanma**       | Veriler sona erdiğinde işlem tamamlanır | Kaynağa bağlı olarak süreklilik durumu söz konusudur. Veri geldikçe işlenir.|
 | **Örnekler**       | `std::fs`         | TCP, UDP, `stdin`                                                           |
+
+
