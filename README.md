@@ -32,7 +32,8 @@ S koduyla başlayan projelerde aşağıdaki konu başlıkları ele alınmıştı
 - [x] S21 - Macros
 - [x] S22 - Parallelism _(Sequential vs Thread Based vs With Rayon)_
 - [x] S23 - Asynchronous Programming
-- [ ] S24 - File I/O Operations
+- [x] S24 - File I/O Operations
+- [ ] S25 - Stream Operations
 - [ ] S99 - Questions
 
 ## Yardımcılar
@@ -234,3 +235,14 @@ S23 bölümünde asenkron programlama ile ilgili bazı kavramlar yer alır. Gene
 | **Kod Karmaşıklığı**  | Göreceli bir durumdur, nispeten basittir.                                                                                                    | Hata ve bağımlılıkların yönetimi karmaşık olabilir.                                                                                                         |
 | **Senaryolar**        | İşlemci yoğun/öncelikli işler için uygundur.                                                                                                 | Daha çok I/O yoğun işler için uygundur.                                                                                                                     |
 | **Ne zaman?**         | CPU yoğun işlerde _(Ağır matematiksel hesaplamalar)_, her görevin tam bağımsız ve paralel çalışması gerektiği durumlar                       | Web istekleri, dosya erişimleri gibi I/O yoğun işler, yüksek ölçeklenebilirlik gerektiren hafif işler, enerji ve kaynak tasarrufunun önemli olduğu durumlar |
+
+S24' te dosya yazma ve okuma işlemleri ele alınırken, S25'te stream işlemlerine bakılıyor. Stream' ler genellikle devamlı ve dinamik veri akışı senaryolarında ele alınır. Veri bir kaynak tarafından üretildikçe _(Network olabilir, stdin olabilir)_ , bir tüketici tarafından da işlenebilir. TCP/UDP üzerinden yapılan hareketler için ideal bir kullanım şeklidir. Dosya I/O ile stream enstrümanları arasındaki farklar aşağıdaki tabloda özetlenmeye çalışılmıştır. Rust tarafında stream'ler söz konusu olduğunda genellik stdin, stdout ve stderr modüllere göz önüne alınır. Bunlarla File I/O operasyonları bağlanabilirdir. Yani bir dosyaya yazma işlemi için stdout'tan faydalınabilir.
+
+# File I/O ve Stream Karşılaştırması
+
+| **Özellik**        | **File I/O**                         | **Stream**                                                                  |
+|--------------------|--------------------------------------|-----------------------------------------------------------------------------|
+| **Veri Büyüklüğü** | Sabittir ve önceden bilinir          | Sınırsız olabilir                                                           |
+| **Kaynak**         | Disk üzerindeki sabit dosyalar       | Dinamik kaynaklar _(tcp/udp gibi ağ protokolleri, stdin)_                   |
+| **Sonlanma**       | Veriler sona erdiğinde işlem tamamlanır | Kaynağa bağlı olarak süreklilik durumu söz konusudur. Veri geldikçe işlenir.|
+| **Örnekler**       | `std::fs`         | TCP, UDP, `stdin`                                                           |
