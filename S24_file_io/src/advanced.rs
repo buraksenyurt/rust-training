@@ -40,9 +40,9 @@ fn analyze_logs(file_path: &str, num_threads: usize) -> io::Result<()> {
     }
 
     drop(tx);
-    let mut error_count=0;
+    let mut error_count = 0;
     for received in rx {
-        error_count+=1;
+        error_count += 1;
         println!("Founded error log: {}", received);
     }
     println!("TOTAL ERROR COUNT: {}", error_count);
