@@ -111,12 +111,12 @@ fn write_log() -> io::Result<()> {
 }
 
 /*
-Aşağıdaki metod verilen teriman komutuna göre şöyle çalışır.
-logs.dat dosyası cat uygulaması ile açılır, bu uygulama dosyanın içeriğini okur ve
-pipe vasıtasıyla bu programın stdin girdisine aktarılır. Bu programda gelen içeriği alır
-ve onu output_logs.txt dosyasının içeriğine doğru yönlendirir.
+    Aşağıdaki metod verilen teriman komutuna göre şöyle çalışır.
+    logs.dat dosyası cat uygulaması ile açılır, bu uygulama dosyanın içeriğini okur ve
+    pipe vasıtasıyla bu programın stdin girdisine aktarılır. Bu programda gelen içeriği alır
+    ve onu output_logs.txt dosyasının içeriğine doğru yönlendirir.
 
-cat logs.dat | cargo run > output_logs.txt
+    cat logs.dat | cargo run > output_logs.txt
 
 */
 fn double_usage() -> io::Result<()> {
