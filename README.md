@@ -36,8 +36,7 @@ bakabilirsiniz. Buradaki kodlar anlatımları desteklemek amacıyla kullanılır
 - [x] S22 - Parallelism _(Sequential vs Thread Based vs With Rayon)_
 - [x] S23 - Asynchronous Programming
 - [x] S24 - File I/O Operations
-- [ ] S25 - Stream Operations
-- [ ] S99 - Questions
+- [x] S25 - Stream Operations
 
 ## Yardımcılar
 

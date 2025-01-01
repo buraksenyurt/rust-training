@@ -1,6 +1,0 @@
-[package]
-name = "S99_questions"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
