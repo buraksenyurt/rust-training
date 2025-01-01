@@ -8,6 +8,7 @@ use std::io::{self, BufRead, Write};
 
     Bu noktada |(pipe) ve >(redirect) sıklıkla karşılaşılan terminal operatörleridir.
     |, stdout çıktısını başka bir programın stdin girişine yönlendirmek için kullanılır.
+
     Örneğin,
         ls | grep ".rs"
     gibi.
