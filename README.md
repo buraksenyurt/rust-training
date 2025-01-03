@@ -37,6 +37,7 @@ bakabilirsiniz. Buradaki kodlar anlatımları desteklemek amacıyla kullanılır
 - [x] S23 - Asynchronous Programming
 - [x] S24 - File I/O Operations
 - [x] S25 - Stream Operations
+- [ ] S26 - Unsafe Zone
 
 ## Yardımcılar
 

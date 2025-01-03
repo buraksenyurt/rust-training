@@ -28,4 +28,4 @@ members = [
     , "S23_asynchronous_programming"
     , "S24_file_io"
     , "S25_streams"
-]
+, "S26_unsafe_coding"]
