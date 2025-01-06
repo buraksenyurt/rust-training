@@ -28,6 +28,6 @@ mod advanced;
 mod simple_ffi;
 
 fn main() {
-    // simple_ffi::run();
+    simple_ffi::run();
     advanced::run();
 }

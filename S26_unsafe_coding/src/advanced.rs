@@ -88,11 +88,37 @@ impl Drop for RapidMemoryPool {
 pub fn run() {
     let mut pool = RapidMemoryPool::new(1024);
 
+    /*
+        Bu tip kullanımlarda bellek taşma hatalarına dikkat etmek gerekir tabii.
+        Ayrılan alandan daha büyük bir veri yazmaya çalışmak ya da belleği serbest bıraktıktan
+        sonra erişmeye çalışmak bazı hatalara sebebiyet verir.Use After Free gibi.
+    */
     unsafe {
         let block_red = pool.allocate(256); // 256 byte yer ayırır
         println!("Block Red allocated at: {:?}", block_red);
+        *block_red = 100;
+        *block_red.add(1) = 200; // İkinci byte
+
+        let position = block_red as *mut Vector;
+        (*position).x = 10;
+        (*position).y = 16;
+
+        println!("Position {}:{}", (*position).x, (*position).y);
 
         let block_blue = pool.allocate(512); // 512 byte yer ayırır
         println!("Block Blue allocated at: {:?}", block_blue);
+
+        // block_blue'dan 256 byte'lık bir slice al
+        let slice = std::slice::from_raw_parts_mut(block_blue, 256);
+        slice[0] = 100; // İlk byte
+        slice[1] = 200; // İkinci byte
+        slice[5] = 35;
+        println!("Slice values: {:?}", &slice[0..10]);
     }
 } // Drop trait implementasyonu nedeniyle buradan bellek otomatik serbest kalır
+
+#[repr(C)]
+struct Vector {
+    x: u16,
+    y: u16,
+}
