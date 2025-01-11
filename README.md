@@ -38,6 +38,7 @@ bakabilirsiniz. Buradaki kodlar anlatımları desteklemek amacıyla kullanılır
 - [x] S24 - File I/O Operations
 - [x] S25 - Stream Operations
 - [x] S26 - Unsafe Zone
+- [ ] S27 - Wasm _(Web Assembly)_
 
 ## Yardımcılar
 
@@ -383,3 +384,90 @@ echo "Some thoughts about you" >> memories.txt
 | **Örnekler**       | `std::fs`                               | TCP, UDP, `stdin`                                                            |
 
 
+S27 Wasm bölümünde Rust'ın Web Assembly ile birlikte kullanımı ele alınmaktadır. Wasm ile tarayıcılarda yüksek performanslı kod işletilmesi mümkündür. Rust tarafında Wasm uyumlu geliştirmeler yapabilmek için öncelikle wasm-pack' in yüklenmesi gerekir. Bunun için [Rust and WebAssembly](https://rustwasm.github.io/) adresine uğrayabiliriz. Ben ilgili paketi yüklemek için komut satırından source code'u kullandım. Tabii sistemde web sayfalarının host edilmesi içinde bir mekanizma gerkekiyor. Bunun içinse [node.js'ten](https://nodejs.org/en/download) yararlanılabilir.
+
+```shell
+# wasm-pack yüklemek için
+cargo install wasm-pack
+
+# Wasm template'leri için cargo-generate aracından yararlanılabilir
+cargo install cargo-generate
+
+# Yukarıdaki araç wasm için proje şablonu kullanmamızı kolaylaştırır
+# ve aşağıdaki gibi ilerleyebiliriz
+cargo generate --git https://github.com/rustwasm/wasm-pack-template
+
+# Bu seçeneğin ardından bize bir proje adı sorulur. Örneğin s27-hello-wasm verebiliriz
+
+# Ardından bu klasöre geçerek wasm build işlemini icare edebiliriz
+cd s27-hello-wasm
+wasm-pack build
+
+# Build operasyonu bir pkg klasörü oluşturur. Yaptığımız kod değişiklikleri sonrası
+# tekrar build işlemini çalıştırmamız gerekir
+
+# Yine aynı klasörde npm initialization işlemlerini yapmamız da gerekir
+# (npm ve node sürümlerinin güncel olduğundan emin olamlıyız)
+npm init wasm-app www
+
+# Ardından www klasörüne geçerek npm kurulumlarını başlatabiliriz
+cd www
+npm install
+```
+
+Eğer buraya kadar işler yolunda gitmişse www klasöründeki package.json dosyasında homepage altına wasm paketi için gerekli bağımlılık bildirimi eklenebilir.
+
+```json
+{
+  "dependencies": {
+    "s27-hello-wasm": "file:../pkg"
+  }
+}
+```
+
+Bunun ardından index.js dosyasındaki modül bildirimi de proje adına göre şekillendirilir. Bizim örneğimiz için
+
+```js
+import * as wasm from "s27-hello-wasm";
+```
+
+Sonrasında www klasöründe tekrar npm install çalıştırılması gerekeibilir. Wasm paketinin de yüklenmesi için. Projeyi çalıştırmak içinse
+
+```shell
+npm run start
+```
+
+İşlemler sırasında web-pack paketleri ile ilgili hatalar alınabilir. Bu paketleri güncel sürümlere çekmemiz yerinde olacaktır.
+
+```shell
+# webpack, webpack-cli ve webpack-dev-server paketlerinin güncel sürümlerine çekilmesi
+npm install webpack@latest webpack-cli@latest webpack-dev-server@latest copy-webpack-plugin@latest --save-dev
+```
+
+**webpack build** operasyonunda da bir hatayla karşılaşabiliriz. Özellikle web pack'in 5.0 sürümleri sonrası için WASM desteğinin experimental olduğuna dair bir bildirim gelebilir. Buna göre webpack.config.js dosyası aşağıdaki gibi değişitirilmelidir. Aslında **experiments** isimli bir özellik aktifleştirilmiştir.
+
+```js
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const path = require("path");
+
+module.exports = {
+    entry: "./bootstrap.js",
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "bootstrap.js",
+    },
+    mode: "development",
+    plugins: [
+        new CopyWebpackPlugin({
+            patterns: [
+                {from: "index.html", to: "index.html"},
+            ],
+        }),
+    ],
+    experiments: {
+        asyncWebAssembly: true,
+    },
+};
+```
+
+Bu düzenlemeler sonrasında tekrardan **npm run start** komutu ile proje başlatılabilir. Pek tabii rust tarafında yapılacak her tür değişiklik wasm paketinin tekrardan oluşturulmasını gerektirir.

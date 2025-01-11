@@ -1,31 +1,33 @@
 [workspace]
-resolver = "2"
 members = [
-    "S00_hello_world"
-    , "S01_variables"
-    , "S02_vectors"
-    , "S03_strings"
-    , "S04_functions"
-    , "S05_control_flows"
-    , "S06_ownership"
-    , "S07_structs"
-    , "S08_lifetimes"
-    , "S09_enums"
-    , "S10_pattern_matching"
-    , "S11_generics"
-    , "S12_traits"
-    , "S13_built_in_traits"
-    , "S14_modules"
-    , "S15_error_handling"
-    , "S16_testing"
-    , "S17_closures"
-    , "S18_smart_pointers"
-    , "S19_threads"
-    , "S20_channels"
-    , "S21_macros"
-    , "proc_macros"
-    , "S22_parallelism"
-    , "S23_asynchronous_programming"
-    , "S24_file_io"
-    , "S25_streams"
-, "S26_unsafe_coding"]
+    "S00_hello_world",
+    "S01_variables",
+    "S02_vectors",
+    "S03_strings",
+    "S04_functions",
+    "S05_control_flows",
+    "S06_ownership",
+    "S07_structs",
+    "S08_lifetimes",
+    "S09_enums",
+    "S10_pattern_matching",
+    "S11_generics",
+    "S12_traits",
+    "S13_built_in_traits",
+    "S14_modules",
+    "S15_error_handling",
+    "S16_testing",
+    "S17_closures",
+    "S18_smart_pointers",
+    "S19_threads",
+    "S20_channels",
+    "S21_macros",
+    "S22_parallelism",
+    "S23_asynchronous_programming",
+    "S24_file_io",
+    "S25_streams",
+    "S26_unsafe_coding",
+    "proc_macros",
+    "s27-hello-wasm",
+]
+resolver = "2"
