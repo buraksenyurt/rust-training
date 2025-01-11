@@ -384,6 +384,8 @@ echo "Some thoughts about you" >> memories.txt
 | **Örnekler**       | `std::fs`                               | TCP, UDP, `stdin`                                                            |
 
 
+# Web Assemble Hello World Örneği ile ilgili Notlar
+
 S27 Wasm bölümünde Rust'ın Web Assembly ile birlikte kullanımı ele alınmaktadır. Wasm ile tarayıcılarda yüksek performanslı kod işletilmesi mümkündür. Rust tarafında Wasm uyumlu geliştirmeler yapabilmek için öncelikle wasm-pack' in yüklenmesi gerekir. Bunun için [Rust and WebAssembly](https://rustwasm.github.io/) adresine uğrayabiliriz. Ben ilgili paketi yüklemek için komut satırından source code'u kullandım. Tabii sistemde web sayfalarının host edilmesi içinde bir mekanizma gerkekiyor. Bunun içinse [node.js'ten](https://nodejs.org/en/download) yararlanılabilir.
 
 ```shell
