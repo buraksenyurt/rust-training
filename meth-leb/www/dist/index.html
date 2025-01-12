@@ -1,12 +1,40 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parabol Denklemleri</title>
+    <title>Parabola Drawer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
+<h1>Parabola Drawer</h1>
+<p>Fun with math :) Select a predefined parabola or use your values to draw your own parabola.</p>
+
 <form id="form">
+    <label for="examples">Practical Samples:</label>
+    <select id="examples">
+        <option value="default" disabled selected>Some parabolas</option>
+        <option value="1,0,0,-10,10,100">y = x²</option>
+        <option value="2,0,0,-5,5,100">y = 2x²</option>
+        <option value="-1,0,0,-10,10,100">y = -x²</option>
+        <option value="1,-6,9,-1,7,100">y = (x-3)²</option>
+        <option value="1,0,-4,-3,3,100">y = x² - 4</option>
+        <option value="1,3,2,-4,1,100">y = x² + 3x + 2</option>
+        <option value="-0.5,2,-1,-2,6,100">y = -0.5x² + 2x - 1</option>
+        <option value="1,4,4,-6,2,100">y = (x+2)²</option>
+    </select>
+    <br><br>
+
     <label for="a">a:</label>
     <input type="number" id="a" step="any" required>
     <label for="b">b:</label>
@@ -24,6 +52,6 @@
 
 <canvas id="canvas" width="800" height="600"></canvas>
 
-<script src="./bundle.js" type="module"></script>
+<script type="module" src="bundle.js"></script>
 </body>
 </html>
