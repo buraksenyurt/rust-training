@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parabol Denklemleri</title>
+</head>
+<body>
+<form id="form">
+    <label for="a">a:</label>
+    <input type="number" id="a" step="any" required>
+    <label for="b">b:</label>
+    <input type="number" id="b" step="any" required>
+    <label for="c">c:</label>
+    <input type="number" id="c" step="any" required>
+    <label for="x_min">x_min:</label>
+    <input type="number" id="x_min" step="any" required>
+    <label for="x_max">x_max:</label>
+    <input type="number" id="x_max" step="any" required>
+    <label for="steps">Steps:</label>
+    <input type="number" id="steps" value="100" required>
+    <button type="submit">Draw</button>
+</form>
+
+<canvas id="canvas" width="800" height="600"></canvas>
+
+<script src="./bundle.js" type="module"></script>
+</body>
+</html>

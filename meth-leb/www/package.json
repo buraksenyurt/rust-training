@@ -1,0 +1,20 @@
+{
+  "name": "parabol-example",
+  "version": "1.0.0",
+  "description": "Rust + WASM ile parabol çizimi örneği",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --open",
+    "build": "webpack"
+  },
+  "author": "Burak Selim Senyurt",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "dependencies": {
+    "copy-webpack-plugin": "^12.0.2"
+  }
+}

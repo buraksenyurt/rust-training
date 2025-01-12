@@ -29,5 +29,6 @@ members = [
     "S26_unsafe_coding",
     "proc_macros",
     "s27-hello-wasm",
+    "meth-leb"
 ]
 resolver = "2"
